@@ -5,8 +5,7 @@ const printCharacter = (mentor) => {
     form.lastname.value = lastname
     form.signature.value = signature
     form.average.value = average
-    if(form!==''){          
-    }
+    
   };
 // PUT-------------------------------------------------------
 const url = new URLSearchParams(window.location.search)
@@ -46,14 +45,14 @@ form.addEventListener('submit', (event) => {
 
 const put = async(mentor, id) => {
   try {
-    const response = await fetch(`https://test-b4e2f-default-rtdb.firebaseio.com/${id}.json`,{
+    const response = await fetch(`https://kodemia-614e9-default-rtdb.firebaseio.com/${id}.json`,{
       method: 'PUT',
       headers: {"Content-type": "application/json;charset=UTF-8"},
       body: JSON.stringify({
-        name:mentor.name,
+        average:mentor.average,
         lastname:mentor.lastname,
+        name:mentor.name,
         signature:mentor.signature,
-        average:mentor.average
       }),
     });
     const result = await response.json();

@@ -49,23 +49,28 @@ formList.forEach((input) => {
 
 // AGREGAR MENTOR
 const postItem = async(mentor) => {
+    // const objInsert={
+    //     name:mentor.name,
+    //     lastname:mentor.lastname,
+    //     signature:mentor.signature,
+    //     average:mentor.average
+    // }
     const response = await fetch('https://kodemia-614e9-default-rtdb.firebaseio.com/.json', {
         method: 'POST',
         headers: {"Content-type": "application/json;"},
         body: JSON.stringify({
+            // objInsert
             name:mentor.name,
             lastname:mentor.lastname,
             signature:mentor.signature,
             average:mentor.average
         })
+        
     });
     
     const data = await response.json();
     return data;
 };
-
-
-
 
 //BUTTON BACK extras
 const backButton=()=>{
